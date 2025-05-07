@@ -1,13 +1,15 @@
 services:
-  frontend:
+  frontend-blue:
     build: ./frontend
+    container_name: frontend-blue
     ports:
       - "5173:80"
     depends_on:
-      - backend
+      - backend-blue
 
-  backend:
+  backend-blue:
     build: ./backend
+    container_name: backend-blue
     environment:
       - MONGO_URI=mongodb://admin:password@database:27017/mydatabase?authSource=admin
       - REDIS_URL=redis://cache:6379
@@ -35,11 +37,12 @@ services:
 
   proxy:
     build: ./proxy
+    container_name: proxy
     ports:
       - "80:80"
     depends_on:
-      - frontend
-      - backend
+      - frontend-blue
+      - backend-blue
 
 volumes:
   mongo-data:
