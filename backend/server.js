@@ -66,4 +66,5 @@ app.delete("/api/users/:id", async (req, res) => {
   res.json({ message: "User deleted" });
 });
 
+app.get("/health", (req, res) => res.send("OK"));
 app.listen(5000, () => console.log("🚀 Server running on port 5000"));
