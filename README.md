@@ -1,4 +1,4 @@
-# Multi-Service App with Blue-Green Deployment (React + Node.js + MongoDB + Redis)
+# Blue-Green Deployment Strategy for Multi-Service Application (React + Node.js + MongoDB + Redis)
 
 This project demonstrates a full-stack Dockerized application with a **Blue-Green deployment strategy** for zero-downtime updates.
 
@@ -61,7 +61,9 @@ docker-compose -f docker-compose.blue.yml up -d --build
 
 This runs the "blue" version at:
 
-Frontend: http://localhost
+Proxy: http://localhost
+
+Frontend: http://localhost:5173
 
 API: http://localhost:5001/api/users
 
@@ -73,9 +75,9 @@ docker-compose -f docker-compose.green.yml up -d --build
 
 Green stack will run:
 
-Frontend: mapped internally
+Frontend: mapped internally or change the port to 5174
 
-Backend: on port 5002
+Backend: on port 5001
 
 ### 4. Health Check
 
