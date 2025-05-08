@@ -10,6 +10,14 @@ h4 {
   margin-bottom: 30px;
 }
 
+span.blue {
+  color: blue;
+}
+
+span.green {
+  color: green;
+}
+
 input {
   width: 100%;
   padding: 12px;

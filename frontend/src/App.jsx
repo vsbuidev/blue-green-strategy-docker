@@ -41,9 +41,13 @@ function App() {
   return (
     <div className="container">
       <h2>Multiple Service Application</h2>
+      {/* <h4>
+        It is a multi-service monolithic architectured application running on
+        Docker - <span className="blue">Blue Environment</span>
+      </h4> */}
       <h4>
         It is a multi-service monolithic architectured application running on
-        Docker
+        Docker - <span className="green">Green Environment</span>
       </h4>
       <input
         placeholder="Name"

@@ -1,11 +1,10 @@
 #!/bin/bash
 
-set -e
-echo "[INFO] Rolling back to blue..."
+docker exec proxy sed -i \
+  -e 's/frontend-green/frontend-blue/g' \
+  -e 's/backend-green/backend-blue/g' \
+  /etc/nginx/nginx.conf
 
-sed -i 's/frontend-green/frontend-blue/g' ./proxy/nginx.conf
-sed -i 's/backend-green/backend-blue/g' ./proxy/nginx.conf
+docker exec proxy nginx -s reload
 
-docker restart proxy
-
-echo "[DONE] Rolled back to BLUE."
+echo "[↩] Rolled back to Blue."
